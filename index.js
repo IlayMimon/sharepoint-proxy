@@ -120,6 +120,10 @@ proxy.all("/*all", function (req, res) { return __awaiter(void 0, void 0, void 0
                 return [4 /*yield*/, fetch(sharePointUrl, __assign(__assign({}, req), { method: req.method, headers: __assign({ Authorization: "Bearer ".concat(token), Accept: "application/json;odata=verbose" }, req.headers), body: hasBody ? JSON.stringify(req.body) : undefined }))];
             case 3:
                 spResponse = _a.sent();
+                if (req.method !== "GET") {
+                    res.status(spResponse.status);
+                    return [2 /*return*/];
+                }
                 return [4 /*yield*/, spResponse.json()];
             case 4:
                 data = _a.sent();

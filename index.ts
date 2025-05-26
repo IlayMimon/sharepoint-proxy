@@ -65,7 +65,14 @@ proxy.all("/*all", async (req: Request, res: Response) => {
       },
       body: hasBody ? JSON.stringify(req.body) : undefined,
     });
+
+    if (req.method !== "GET") {
+      res.status(spResponse.status);
+      return;
+    }
+
     const data = await spResponse.json();
+
     res.status(spResponse.status).send(data);
   } catch (error) {
     console.error("Proxy error:", error);
