@@ -1,0 +1,23 @@
+{
+  "name": "sharepoint-proxy",
+  "version": "1.0.0",
+  "description": "proxy to connect to sharepoint from localhost",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts --esModuleInterop",
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/msal-node": "^3.5.1",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
