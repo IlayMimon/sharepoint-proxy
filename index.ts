@@ -61,8 +61,6 @@ proxy.all("/*all", async (req: Request, res: Response) => {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: "application/json;odata=verbose",
-        // required because headers cannot be explicitly undefined.
-        // ...(hasBody ? { "Content-Type": "application/json" } : {}),
         ...(req.headers as { [key: string]: string }),
       },
       body: hasBody ? JSON.stringify(req.body) : undefined,
